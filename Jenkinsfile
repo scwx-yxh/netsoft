@@ -41,10 +41,10 @@ pipeline {
         stage('Docker Build') {
             steps {
                 sh '''
-                set -e
-                docker --version
-                docker build -t "$IMAGE_NAME" .
-                '''
+        set -e
+        docker --version
+        docker build --network=host -t "$IMAGE_NAME" .
+        '''
             }
         }
 
